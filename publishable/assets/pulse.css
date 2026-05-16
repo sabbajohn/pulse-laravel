@@ -1,0 +1,151 @@
+body {
+    margin: 0;
+    background: #f7f8fa;
+    color: #171717;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.pulse-shell {
+    margin: 0 auto;
+    max-width: 1180px;
+    padding: 28px;
+}
+
+.pulse-header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 28px;
+}
+
+.pulse-header p {
+    color: #667085;
+    margin: 4px 0 0;
+}
+
+.pulse-brand {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.pulse-header nav {
+    display: flex;
+    gap: 16px;
+}
+
+.pulse-header nav a {
+    color: #475467;
+    font-size: 14px;
+}
+
+.pulse-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    margin-bottom: 16px;
+}
+
+.pulse-grid-2 {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.pulse-card,
+.pulse-alert {
+    background: #ffffff;
+    border: 1px solid #e4e7ec;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(16, 24, 40, .04);
+    padding: 18px;
+}
+
+.pulse-alert {
+    border-color: #fda29b;
+    color: #b42318;
+    margin-bottom: 16px;
+}
+
+.pulse-card h1,
+.pulse-card h2 {
+    margin: 0 0 12px;
+}
+
+.pulse-link-card {
+    display: grid;
+    gap: 10px;
+}
+
+.pulse-link-card span {
+    font-weight: 700;
+}
+
+code,
+pre {
+    background: #f2f4f7;
+    border-radius: 6px;
+    color: #344054;
+}
+
+code {
+    padding: 3px 6px;
+}
+
+pre {
+    min-height: 120px;
+    overflow: auto;
+    padding: 12px;
+}
+
+.pulse-section-heading {
+    align-items: flex-start;
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+    margin-bottom: 18px;
+}
+
+.pulse-section-heading p {
+    color: #667085;
+    margin: 0;
+}
+
+.pulse-console {
+    display: grid;
+    gap: 14px;
+}
+
+.pulse-console label {
+    color: #344054;
+    display: grid;
+    font-size: 13px;
+    font-weight: 600;
+    gap: 6px;
+}
+
+.pulse-console input,
+.pulse-console select,
+.pulse-console textarea {
+    border: 1px solid #d0d5dd;
+    border-radius: 6px;
+    font: inherit;
+    padding: 10px 12px;
+}
+
+.pulse-console textarea {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+
+.pulse-console button {
+    background: #155eef;
+    border: 0;
+    border-radius: 6px;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 700;
+    justify-self: start;
+    padding: 10px 16px;
+}

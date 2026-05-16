@@ -1,0 +1,31 @@
+{
+    "name": "sabbajohn/pulse-laravel",
+    "description": "Laravel integration package for VoraPulse.",
+    "version": "0.1.0",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "illuminate/console": "^10.0|^11.0|^12.0",
+        "illuminate/routing": "^10.0|^11.0|^12.0",
+        "illuminate/support": "^10.0|^11.0|^12.0",
+        "sabbajohn/pulse-php": "^0.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sabbajohn\\PulseLaravel\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sabbajohn\\PulseLaravel\\PulseServiceProvider"
+            ],
+            "aliases": {
+                "Pulse": "Sabbajohn\\PulseLaravel\\Facades\\Pulse"
+            }
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
