@@ -1,7 +1,6 @@
 {
     "name": "sabbajohn/pulse-laravel",
     "description": "Laravel integration package for VoraPulse.",
-    "version": "0.1.0",
     "type": "library",
     "license": "MIT",
     "require": {

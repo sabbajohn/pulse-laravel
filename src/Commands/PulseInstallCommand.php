@@ -35,7 +35,7 @@ class PulseInstallCommand extends Command
         }
 
         $this->components->info('VoraPulse SDK installed.');
-        $this->line('Set PULSE_BASE_URL and PULSE_API_TOKEN before using the proxy UI or facade.');
+        $this->line('Set PULSE_BASE_URL and PULSE_API_TOKEN, or configure pulse.credentials_resolver for multi-tenant apps.');
 
         return self::SUCCESS;
     }

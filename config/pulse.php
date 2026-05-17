@@ -9,6 +9,20 @@ return [
 
     'timeout' => (int) env('PULSE_TIMEOUT', 30),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Dynamic credentials resolver
+    |--------------------------------------------------------------------------
+    |
+    | For multi-tenant apps, set this to an invokable class, Class@method, or
+    | callable that returns ['base_url' => ..., 'api_token' => ..., 'timeout' => ...].
+    | Returning null falls back to the static config above.
+    |
+    */
+    'credentials_resolver' => null,
+
+    'options' => [],
+
     'route_prefix' => env('PULSE_ROUTE_PREFIX', 'pulse'),
 
     'middleware' => array_values(array_filter(explode(',', env('PULSE_MIDDLEWARE', 'web,auth')))),

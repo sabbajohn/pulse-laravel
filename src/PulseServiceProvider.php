@@ -12,12 +12,12 @@ class PulseServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/../config/pulse.php', 'pulse');
 
-        $this->app->singleton(PulseClient::class, function () {
-            return new PulseClient(
-                (string) config('pulse.base_url'),
-                (string) config('pulse.api_token'),
-                ['timeout' => (int) config('pulse.timeout', 30)],
-            );
+        $this->app->singleton(PulseClientFactory::class, function ($app) {
+            return new PulseClientFactory($app);
+        });
+
+        $this->app->bind(PulseClient::class, function ($app) {
+            return $app->make(PulseClientFactory::class)->make();
         });
 
         $this->app->alias(PulseClient::class, 'pulse');
