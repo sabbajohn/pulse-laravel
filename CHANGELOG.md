@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.2.3 - 2026-05-17
+
+- Added Laravel 13 compatibility to the `illuminate/*` package constraints.
+- Updated compatibility documentation and troubleshooting commands for Laravel 13.
+
 ## v0.2.2 - 2026-05-17
 
 - Documented VCS repository configuration for `sabbajohn/pulse-php`.

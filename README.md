@@ -2,7 +2,7 @@
 
 Pacote Laravel para integrar projetos ao VoraPulse via Composer.
 
-Versao atual: `0.2.2`.
+Versao atual: `0.2.3`.
 
 ## O que este pacote entrega
 
@@ -14,7 +14,7 @@ Versao atual: `0.2.2`.
 ## Compatibilidade
 
 - PHP `^8.2`
-- Laravel `9.x`, `10.x`, `11.x` ou `12.x`
+- Laravel `9.x`, `10.x`, `11.x`, `12.x` ou `13.x`
 - `sabbajohn/pulse-php` `^0.1`
 
 ## Instalacao
@@ -48,7 +48,7 @@ Se o Composer indicar conflito com `illuminate/console`, confira a versao do Lar
 
 ```bash
 composer show laravel/framework
-composer why-not illuminate/console '^9.0|^10.0|^11.0|^12.0'
+composer why-not illuminate/console '^9.0|^10.0|^11.0|^12.0|^13.0'
 ```
 
 ## Configuracao
