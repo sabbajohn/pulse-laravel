@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.2.2 - 2026-05-17
+
+- Documented VCS repository configuration for `sabbajohn/pulse-php`.
+- Documented a VCS fallback for installing the latest `pulse-laravel` tag before Packagist reindexing completes.
+
 ## v0.2.1 - 2026-05-17
 
 - Added Laravel 9 compatibility to the `illuminate/*` package constraints.

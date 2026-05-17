@@ -2,7 +2,7 @@
 
 Pacote Laravel para integrar projetos ao VoraPulse via Composer.
 
-Versao atual: `0.2.1`.
+Versao atual: `0.2.2`.
 
 ## O que este pacote entrega
 
@@ -22,6 +22,20 @@ Versao atual: `0.2.1`.
 ```bash
 composer require sabbajohn/pulse-laravel:^0.2
 php artisan pulse:install
+```
+
+Se `sabbajohn/pulse-php` ainda nao estiver disponivel no Packagist do projeto consumidor, registre o repositorio VCS do pacote base antes da instalacao:
+
+```bash
+composer config repositories.pulse-php vcs https://github.com/sabbajohn/pulse-php.git
+composer require sabbajohn/pulse-laravel:^0.2
+```
+
+Se o Packagist ainda nao tiver indexado a ultima tag do pacote Laravel, registre tambem o repositorio VCS deste pacote:
+
+```bash
+composer config repositories.pulse-laravel vcs https://github.com/sabbajohn/pulse-laravel.git
+composer require sabbajohn/pulse-laravel:^0.2
 ```
 
 Se estiver usando `zsh` e quiser testar qualquer versao disponivel, coloque a constraint entre aspas para o shell nao expandir `*`:
