@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.2.1 - 2026-05-17
+
+- Added Laravel 9 compatibility to the `illuminate/*` package constraints.
+- Documented supported Laravel versions and Composer troubleshooting commands.
+
 ## v0.2.0 - 2026-05-17
 
 - Added `PulseClientFactory` for runtime client creation.
