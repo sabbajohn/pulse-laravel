@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.2.4 - 2026-05-29
+
+- Documented the OpenAPI public spec as the normative contract behind the Laravel adapter.
+- Added proxy hardening and resolver-failure test coverage.
+- Added explicit quickstart and release validation guidance.
+
 ## v0.2.3 - 2026-05-17
 
 - Added Laravel 13 compatibility to the `illuminate/*` package constraints.
