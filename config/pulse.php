@@ -34,6 +34,7 @@ return [
         'composer',
         'templates',
         'campaigns',
+        'contacts',
         'audiences',
         'audience',
         'automations',

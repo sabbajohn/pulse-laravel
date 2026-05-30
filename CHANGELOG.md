@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.2.5 - 2026-05-30
+
+- Allowed `contacts` through the local proxy allow-list to match the public `/contacts` contract.
+- Updated docs to include the new public contacts domain exposed by `pulse-php`.
+
 ## v0.2.4 - 2026-05-29
 
 - Documented the OpenAPI public spec as the normative contract behind the Laravel adapter.

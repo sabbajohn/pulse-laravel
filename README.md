@@ -80,6 +80,7 @@ $pulse = app(PulseClientFactory::class)->make([
 The local UI lives under `/{PULSE_ROUTE_PREFIX}` and offers a lightweight integration console.
 
 The local proxy only forwards paths listed in `config/pulse.php` under `allowed_proxy_prefixes`. Administrative routes are blocked by design.
+The default list includes the public domains such as `emails`, `templates`, `campaigns`, `contacts`, `audiences`, `automations`, `calendar` and `whatsapp`.
 
 ## Examples
 
