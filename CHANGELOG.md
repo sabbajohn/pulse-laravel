@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.2.6 - 2026-06-24
+
+- Documented `emails()->ingestBounce()` from `sabbajohn/pulse-php` for the public bounce ingestion endpoint.
+- Clarified that the local proxy can forward `POST /emails/bounces` through the existing `emails` allow-list entry.
+
 ## v0.2.5 - 2026-05-30
 
 - Allowed `contacts` through the local proxy allow-list to match the public `/contacts` contract.

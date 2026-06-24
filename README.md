@@ -62,6 +62,13 @@ Pulse::emails()->sendAsync([
     'subject' => 'Processando',
     'html' => '<p>Recebemos sua solicitacao.</p>',
 ]);
+
+Pulse::emails()->ingestBounce([
+    'email_id' => 154,
+    'bounce_type' => 'hard',
+    'recipient' => 'cliente@example.com',
+    'reason' => 'Mailbox unavailable',
+]);
 ```
 
 For explicit runtime credentials:
@@ -81,6 +88,7 @@ The local UI lives under `/{PULSE_ROUTE_PREFIX}` and offers a lightweight integr
 
 The local proxy only forwards paths listed in `config/pulse.php` under `allowed_proxy_prefixes`. Administrative routes are blocked by design.
 The default list includes the public domains such as `emails`, `templates`, `campaigns`, `contacts`, `audiences`, `automations`, `calendar` and `whatsapp`.
+Because `emails` is allow-listed, the local proxy can also forward `POST /emails/bounces` for manual bounce ingestion.
 
 ## Examples
 
