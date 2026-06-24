@@ -69,6 +69,14 @@ Pulse::emails()->ingestBounce([
     'recipient' => 'cliente@example.com',
     'reason' => 'Mailbox unavailable',
 ]);
+
+Pulse::campaigns()->update(42, [
+    'name' => 'Newsletter atualizada',
+    'channel' => 'email',
+    'template_source_type' => 'html',
+    'template_source' => '<p>Oi</p>',
+    'compiled_html' => '<p>Oi</p>',
+]);
 ```
 
 For explicit runtime credentials:

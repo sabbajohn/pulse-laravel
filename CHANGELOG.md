@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.2.7 - 2026-06-24
+
+- Documented campaign update/delete support from `sabbajohn/pulse-php` for `/campaigns/{campaignId}`.
+- Updated Laravel adapter release notes to align with the public campaign API surface.
+
 ## v0.2.6 - 2026-06-24
 
 - Documented `emails()->ingestBounce()` from `sabbajohn/pulse-php` for the public bounce ingestion endpoint.
