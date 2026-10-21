@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.2.8 - 2026-10-21
+
+- R2: isolate exact namespaces using digest/index, binary original comparisons and primary reads throughout; honor Retry-After and stop terminal non-JSON errors; add NOCASE/replica regressions.
+
+- Add opt-in encrypted durable provisioning intents, after-commit jobs, fenced leases, recovery scanner and credential resolver; requires PHP SDK ^0.1.5; included in 0.2.8.
+
 ## v0.2.7 - 2026-06-24
 
 - Documented campaign update/delete support from `sabbajohn/pulse-php` for `/campaigns/{campaignId}`.

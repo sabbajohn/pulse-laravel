@@ -101,3 +101,32 @@ Because `emails` is allow-listed, the local proxy can also forward `POST /emails
 ## Examples
 
 - `examples/PulseTenantCredentials.php`
+
+## Durable partner provisioning (0.2.8)
+
+Requires pulse-php ^0.1.5. The feature is disabled by default and has no automatic customer discovery or HTTP interception.
+
+Update both packages with a targeted Composer update, review/commit the consumer's composer.json and composer.lock, then publish the opt-in migration:
+
+```bash
+php artisan vendor:publish --tag=pulse-provisioning-migrations
+php artisan migrate
+```
+
+Configure server-only `PULSE_PARTNER_TOKEN`, `PULSE_PROVISIONING_BASE_URL` (HTTPS), a stable, byte-exact `PULSE_PROVISIONING_INTEGRATION` (case-sensitive even under case-insensitive DB collations), queue worker and periodic scanner before enabling `PULSE_PROVISIONING_ENABLED=true`. Never expose the partner token through Pulse's browser proxy. Existing proxy allowlists intentionally do not include provisioning.
+
+Call inside the local customer's transaction, on the same default database connection:
+
+```php
+DB::transaction(function () use ($input) {
+    $customer = Customer::create($input);
+    app(\Sabbajohn\PulseLaravel\Provisioning\PartnerProvisioner::class)
+        ->enqueue('customer-'.$customer->id, ['name' => $customer->name]);
+});
+```
+
+Schedule `pulse:provision-pending` every minute to recover pending requests, queue outages and abandoned leases. HTTP occurs only after commit. Snapshot/result are encrypted with APP_KEY; jobs contain only intent UUIDs. HTTP timeout defaults to 15s (1–60 allowed), job timeout 90s, lease 120s; set queue retry_after above 120s. Rollback discards the intent. Timeout/429/5xx retry the same immutable key/payload; 401/403/404/409/422 stop as failed even for HTML/malformed responses. Transient retries honor Retry-After seconds or HTTP-date when later than the backoff. Monitor failures and backlogs without logging snapshots or credentials.
+
+A `pulse.credentials_resolver` can use `PartnerProvisioner::credentialsFor($stableCustomerId)` from an authenticated, authorized customer context. All intent queries use a digest of the exact namespace bytes plus binary original comparison and the primary/write PDO, including the resolver/scanner. It throws for missing/pending/inactive results so it cannot fall back to another customer's static token. It resolves completed/active historical results only; current backend access remains authoritative. Default pending activation needs explicit operational review before adopting the local credentials. This package creates no human invitation and performs no SMTP checks.
+
+For databases per tenant, explicitly design the local transaction boundary; this implementation uses the default connection and does not supply distributed transactions. Changing the namespace, partner or host for existing intents requires a reviewed migration. Full contract, activation limits and test commands: Pulse backend `docs/integracao/partner-provisioning.md`. Package tests run with that host's PHPUnit bootstrap; no real network is used.
