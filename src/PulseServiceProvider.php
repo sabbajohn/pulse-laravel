@@ -31,11 +31,16 @@ class PulseServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands([
                 PulseInstallCommand::class,
+                \Sabbajohn\PulseLaravel\Commands\ProvisionPendingCommand::class,
             ]);
 
             $this->publishes([
                 __DIR__.'/../config/pulse.php' => config_path('pulse.php'),
             ], 'pulse-config');
+
+            $this->publishes([
+                __DIR__.'/../database/migrations' => database_path('migrations'),
+            ], 'pulse-provisioning-migrations');
 
             $this->publishes([
                 __DIR__.'/../resources/views' => resource_path('views/vendor/pulse'),

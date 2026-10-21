@@ -23,6 +23,14 @@ return [
 
     'options' => [],
 
+    'provisioning' => [
+        'enabled' => (bool) env('PULSE_PROVISIONING_ENABLED', false),
+        'integration' => env('PULSE_PROVISIONING_INTEGRATION', 'default'),
+        'base_url' => env('PULSE_PROVISIONING_BASE_URL', env('PULSE_BASE_URL')),
+        'partner_token' => env('PULSE_PARTNER_TOKEN'),
+        'timeout' => (int) env('PULSE_PROVISIONING_TIMEOUT', 15),
+    ],
+
     'route_prefix' => env('PULSE_ROUTE_PREFIX', 'pulse'),
 
     'middleware' => array_values(array_filter(explode(',', env('PULSE_MIDDLEWARE', 'web,auth')))),
